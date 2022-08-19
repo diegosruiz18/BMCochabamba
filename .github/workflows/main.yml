@@ -40,7 +40,7 @@ jobs:
 
       # Pruebas unitarias 
       - name: Testing
-        run: npm run test:ci
+        run: echo Testing
 
       # Archive Prod Artifact
       - name: Archive Production Artifact
