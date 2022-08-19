@@ -1,0 +1,92 @@
+<!-- <div *ngIf="auth.user | async; else showLogin">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Redirigiendo...</span>
+    </div>
+</div> -->
+
+<!-- <ng-template #showLogin> -->
+    <div class="container">
+        <hr />
+        <div class="row">
+            <!-- <div class="col"></div> -->
+            <div class="col-md-6 .d-sm-none .d-md-block">
+                <img src="./../../assets/foto-login.png" alt="mujer-sonriendo" class="img-fluid" />
+            </div>
+            <div class="col-md-6">
+                <p id="error" *ngIf="contrasenhaErronea">
+                    Usuario o Contraseña Incorrecta :'(
+                </p>
+                <form (submit)="onSubmit()">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            [(ngModel)]="email" name="email" />
+                        <div id="emailHelp" class="form-text">
+                            No compartiremos tus datos personales con nadie.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="pass"
+                            name="pass" />
+                    </div>
+                    <div *ngIf="ingresar" class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                        <label class="form-check-label" for="exampleCheck1">Recordar</label>
+                    </div>
+                    <div *ngIf="ingresar">
+                        <div class="row text-center">
+                            <div class="col">
+                                <button class="btn btn-primary" (click)="customLogin()">Ingresar</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary" (click)="loginWithGoogle()">
+                                    Ingresar con Google
+                                </button>
+                            </div>
+                        </div>
+                        <br />
+                        <p>
+                            ¿Aún no tienes una cuenta?
+                            <b (click)="clicRegistrate()">Regístrate aquí</b>
+                        </p>
+                    </div>
+                    <div *ngIf="!ingresar">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword2" class="form-label">Nombres Completos</label>
+                            <input class="form-control" id="exampleInputPassword2" [(ngModel)]="nombres" name="nombres" />
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword3" class="form-label">Ciudad</label>
+                                    <input class="form-control" id="exampleInputPassword3" [(ngModel)]="ciudad" name="ciudad" />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword4" class="form-label">Edad</label>
+                                    <input class="form-control" id="exampleInputPassword4" [(ngModel)]="edad" name="edad" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                                <button (click)='customRegistro()' type="submit" class="btn btn-primary">Registrarse</button>
+                            </div>
+                            <!-- <div class="col">
+                                <button class="btn btn-primary">Registrate con Google</button>
+                            </div> -->
+                        </div>
+                        <br />
+                        <p>
+                            ¿Ya tienes una cuenta?
+                            <b (click)="clicIniciaSesion()">Inicia Sesión aquí</b>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr />
+    </div>
+<!-- </ng-template> -->

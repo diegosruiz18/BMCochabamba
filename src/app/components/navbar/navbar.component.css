@@ -1,0 +1,30 @@
+.hoverLinks:hover {
+    cursor: pointer;
+}
+
+.bg-light{
+    --bs-bg-opacity:0;
+}
+
+#logoBM{
+    font-size: 3rem;
+}
+
+a{
+    font-size: medium;
+}
+
+button{
+    border-color: #D84727;
+    color: #D84727;
+}
+
+button:hover{
+    border-color: #D84727;
+    background-color: #D84727;
+}
+
+img{
+    width: 30px;
+    height: 30px;
+}

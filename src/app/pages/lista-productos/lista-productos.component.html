@@ -1,0 +1,44 @@
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <h1>Elige tu producto favorito</h1>
+            <br>
+            <h3>¿Qué estás buscando?</h3>
+        </div>
+    </div>
+    <!-- botones -->
+    <div class="row py-5">
+        <div class="col-4 text-end"> 
+            <button class="btn btn-naranja py-2" (click)="mostrarPrendasAccesorios()">Prendas <br>& accesorios</button>
+        </div>
+        <div class="col-4 text-center">
+            <button class="btn btn-naranja py-4 px-4" (click)="mostrarMaquillaje()">Maquillaje</button>
+        </div>
+        <div class="col-4 text-start">
+            <button class="btn btn-naranja py-4 px-4" (click)="mostrarPerfumes()">Perfumes</button>
+        </div>
+    </div>
+
+    <!--tabla-->
+    <div class="row py-5">
+        <div class="col">
+            <div *ngIf="productoSeleccionado=='Prendas y accesorios'">
+                <app-tabla-productos 
+                [categoria]="productoSeleccionado"
+                ></app-tabla-productos>
+            </div>
+
+            <div *ngIf="productoSeleccionado=='Maquillaje'">
+                <app-tabla-productos
+                [categoria]="productoSeleccionado"
+                ></app-tabla-productos>
+            </div>
+
+            <div *ngIf="productoSeleccionado=='Perfume'">
+                <app-tabla-productos
+                [categoria]="productoSeleccionado"
+                ></app-tabla-productos>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+div {
+    background-color: #D84727;
+}
+
+hr{
+    height: 2px;
+    margin: 0;
+}
+
+.titulo-logo{
+    font-size: 48px;
+    font-weight: 400;
+}

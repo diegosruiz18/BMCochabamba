@@ -1,0 +1,239 @@
+<div class="container px-0">
+    <!--fases del flujo-->
+    <div class="row">
+        <div class="col text-end">
+            <img src="../../../assets/flujo-detallepedido-detalles.png" alt="">
+            <p class="titulo-detalles">1. Detalles</p>
+        </div>
+        <div class="col text-center">
+            <div class="linea"></div>
+        </div>
+        <div class="col">
+            <img src="../../../assets/flujo-detallepedido-confirmacion.png" alt="">
+            <p class="titulo-confirmacion">2. Confirmación</p>
+        </div>
+    </div>
+    <!--cards-->
+    <div class="row py-3 px-0">
+        <!--detalles del precio-->
+        <div class="col">
+            <div id="card-item" class="card">
+                <div class="card-body px-5">
+                    <h1 class="card-title py-2 titulo-card">Detalles del pedido</h1>
+                    <div class="row py-1">
+                        <div class="col-6">
+                            <p class="card-text texto-card">Subtotal</p>
+                        </div>
+                        <div class="col-4">
+                            <p class="card-text texto-card">{{subtotal | currency:'PLUMA':'S/. ':'1.2-2'}}</p>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-6">
+                            <p class="card-text texto-card">Costo de envío</p>
+                        </div>
+                        <div class="col-4">
+                            <p class="card-text texto-card">{{costoEnvio | currency:'PLUMA':'S/. ':'1.2-2'}}</p>
+                        </div>
+                    </div>
+                    <div class="linea-card"></div>
+                    <div class="row py-2">
+                        <div class="col-6">
+                            <p class="card-text texto-card" style="font-weight: 600;">Total</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="card-text texto-card" style="font-size: 37px; font-weight: 600;">{{total | currency:'PLUMA':'S/. ':'1.2-2'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--detalles direccion de envio-->
+        <div class="col">
+            <div id="card-item" class="card">
+                <div class="card-body px-4">
+                    <h1 class="card-title py-2 titulo-card">Dirección de envío</h1>
+                    <!--formulario-->
+                    <form [formGroup]="formLogin" (submit)="open(content)" class="pt-0 pb-4" errorTailor>
+                        <!-- ********** Nombre completo ************** -->
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label titulo-label">Nombre completo</label>
+                            <input type="text" id="nombre" class="form-control shadow texto-label" formControlName="nombre">
+                        </div>
+                        <!-- ********** Correo ************** -->
+                        <div  class="mb-3">
+                          <label for="email" class="form-label titulo-label">Correo</label>
+                          <input type="text" class="form-control shadow texto-label" id="email" formControlName="email">
+                        </div>
+                        <!-- ********** Numero de telefono ************** -->
+                        <div  class="mb-3">
+                            <label for="telefono" class="form-label titulo-label">Número de teléfono</label>
+                            <input type="text" class="form-control shadow texto-label" id="telefono" formControlName="telefono"
+                            [controlErrorsTpl]="messagePasswordError">
+                        </div>
+                        <!-- ********** Direccion de envio ************** -->
+                        <div  class="mb-3">
+                            <label for="direccion" class="form-label titulo-label">Dirección de envío</label>
+                            <input type="text" class="form-control shadow texto-label" id="direccion" formControlName="direccion">
+                        </div>
+                        <!-- ********** Pais ************** -->
+                        <div  class="mb-3">
+                            <label for="pais" class="form-label titulo-label">País</label>
+                            <input type="text" class="form-control shadow texto-label" id="pais" formControlName="pais">
+                        </div>
+                        <!-- ********** Estado/Provincia ************** -->
+                        <div  class="mb-3">
+                            <label for="provincia" class="form-label titulo-label">Estado/Provincia</label>
+                            <input type="text" class="form-control shadow texto-label" id="provincia" formControlName="provincia">
+                        </div>
+                        <!-- ********** Ciudad y código postal ************** -->
+                        <div class="row">
+                            <div class="col">
+                                <!-- ********** Ciudad ************** -->
+                                <div  class="mb-3">
+                                    <label for="ciudad" class="form-label titulo-label">Ciudad</label>
+                                    <input type="text" class="form-control shadow texto-label" id="ciudad" 
+                                    formControlName="ciudad">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <!-- ********** Código postal ************** -->
+                                <div class="mb-3">
+                                    <label for="codigopostal" class="form-label titulo-label">Código postal</label>
+                                    <input type="text" class="form-control shadow texto-label" id="codigopostal"
+                                    formControlName="codigopostal">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ********** Select Courier ************** -->
+                        <div class="mb-3">
+                            <label for="select" class="form-label titulo-label">Elegir courier</label>
+                            <select class="form-control shadow texto-label"
+                            formControlName="type" name="select" id="select">
+                              <option value="olva">Olva Courier</option>
+                            </select>
+                        </div>
+                        <!-- ********** Botones ************** -->
+                        <div class="row mt-4 text-center">
+                            <div class="col text-center">
+                                <button class="btn btn-confirmar btn-block w-100" 
+                                [disabled]="formLogin.invalid">Confirmar</button>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="w-100 pt-4">
+                          <code class="w-100">
+                              <b>Estado del formulario:</b> {{formLogin.valid | json}}
+                          </code>
+                        </div>
+                        -->
+                    </form>
+                    <div class="row mt-0 text-center">
+                        <div class="col text-center">
+                            <button class="btn btn-regresar w-100" (click)="open(contentRegresar)">
+                                Regresar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!---- ********************* Templates de error ****************** --->
+<ng-template let-error let-text="text" #messagePasswordError>
+<!--  {{ error | json }} {{ text }}-->
+    <div *ngIf="error?.minlength">
+        <span>Se esperan al menos {{error?.minlength?.requiredLength}} dígitos, 
+            ud. ha ingresado solo {{error?.minlength?.actualLength}}
+        </span>
+    </div>
+</ng-template>
+
+<ng-template let-error let-text="text" #mensajeError> {{ error | json }} {{ text }} </ng-template>
+
+
+<!--Modal para confirmacion de pedido -->
+<ng-template #content let-modal>
+    <div class="modal-header ventana-modal">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <h5 class="modal-title" id="modal-basic-title" style="font-weight: 700;">Confirmación</h5>
+            </div>
+            <div class="col-6 text-end">
+              <button class="btn"
+              (click)="modal.dismiss('Cross click')">
+                <span>×</span>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal-body ventana-modal">
+        <div class="container">
+            <div class="row py-3">
+                <div class="col text-center">
+                    <h5>¿Desea continuar con su pedido?</h5>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col text-center">
+                    <img src="../../../assets/order-now.png" alt="">
+                </div>
+            </div>
+            <div class="row py-2" style="margin-bottom: 30px;">
+                <div class="col text-end mx-3">
+                    <button class="btn btn-naranja px-3" (click)="send()">Sí, confirmar</button>
+                </div>
+                <div class="col text-start mx-3">
+                    <button class="btn btn-naranja-claro px-4" (click)="modal.dismiss('Cross click')">No, regresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<!--Modal para regresar a la home-page-->
+<ng-template #contentRegresar let-modal2>
+    <div class="modal-header ventana-modal">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <h5 class="modal-title" id="modal-basic-title" style="font-weight: 700;">Regresar</h5>
+            </div>
+            <div class="col-6 text-end">
+              <button class="btn"
+              (click)="modal2.dismiss('Cross click')">
+                <span>×</span>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal-body ventana-modal">
+        <div class="container">
+            <div class="row py-3">
+                <div class="col text-center">
+                    <h5>¿Seguro(a) que desea regresar?<br>En caso confirme, regresará a la página principal</h5>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col text-center">
+                    <img src="../../../assets/left-arrow.png" alt="">
+                </div>
+            </div>
+            <div class="row py-2" style="margin-bottom: 30px; margin-top: 15px;">
+                <div class="col text-end mx-3">
+                    <button class="btn btn-naranja px-3" (click)="regresar()">Sí, regresar</button>
+                </div>
+                <div class="col text-start mx-3">
+                    <button class="btn btn-naranja-claro px-4" (click)="modal2.dismiss('Cross click')">No, cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

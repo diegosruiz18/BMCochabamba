@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "bm-cochabamba"
+  },
+  "targets": {
+    "proyectomaquetadw": {
+      "hosting": {
+        "belleza-y-moda-landing": [
+          "bm-cochabamba"
+        ]
+      }
+    }
+  }
+}

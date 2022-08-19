@@ -1,0 +1,25 @@
+b:hover{
+    cursor: pointer;
+}
+
+b{
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    background-color: #D84727;
+    border: 0;
+}
+
+button:hover {
+    background-color: #D84727;
+}
+
+#btnSalir {
+    width: auto;
+}
+
+#error {
+    color:red;
+}

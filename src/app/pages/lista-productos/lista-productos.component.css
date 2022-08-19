@@ -1,0 +1,17 @@
+.btn-naranja{
+    background-color: #D84727;
+    border-color: #D84727;
+    border-radius: 0%;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 4%;
+}
+
+.btn-naranja:hover{
+    background-color: #fff;
+    border-color: #D84727;
+    border-radius: 0%;
+    color: #D84727;
+    font-size: 20px;
+    border-radius: 4%;
+}
