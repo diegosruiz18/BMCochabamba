@@ -38,10 +38,6 @@ jobs:
       - name: Build
         run: npm run build --prod
 
-      # Pruebas unitarias 
-      - name: Testing
-        run: echo Testing
-
       # Archive Prod Artifact
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
